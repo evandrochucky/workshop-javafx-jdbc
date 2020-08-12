@@ -1,6 +1,7 @@
 package gui;
 
 import java.net.URL;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -44,10 +45,10 @@ public class SellerListController implements Initializable, DataChangeListener {
 	private TableColumn<Seller, String> tableColumnEmail;
 	
 	@FXML
-	private TableColumn<Seller, String> tableColumnBirthDate;
+	private TableColumn<Seller, Date> tableColumnBirthDate;
 	
 	@FXML
-	private TableColumn<Seller, String> tableColumnBaseSalary;
+	private TableColumn<Seller, Double> tableColumnBaseSalary;
 	
 	@FXML
 	private TableColumn<Seller, String> tableColumnDepartmentId;
@@ -86,9 +87,14 @@ public class SellerListController implements Initializable, DataChangeListener {
 		tableColumnId.setCellValueFactory(new PropertyValueFactory<>("Id"));
 		tableColumnName.setCellValueFactory(new PropertyValueFactory<>("Name"));
 		tableColumnEmail.setCellValueFactory(new PropertyValueFactory<>("Email"));
+
 		tableColumnBirthDate.setCellValueFactory(new PropertyValueFactory<>("BirthDate"));
+		Utils.formatTableColumnDate(tableColumnBirthDate, "dd/MM/yyyy");
+		
 		tableColumnBaseSalary.setCellValueFactory(new PropertyValueFactory<>("BaseSalary"));
-		tableColumnDepartmentId.setCellValueFactory(new PropertyValueFactory<>("DepartmentId"));
+		Utils.formatTableColumnDouble(tableColumnBaseSalary, 2);
+
+//		tableColumnDepartmentId.setCellValueFactory(new PropertyValueFactory<>("DepartmentId"));
 		
 		// para que o tamanho da minha tableview acompanhe o tamanho da janela.
 		Stage stage = (Stage) Main.getMainScene().getWindow();
