@@ -157,7 +157,7 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 			st = conn.prepareStatement(
 					"SELECT * " 
 			      + "FROM department " 
-				  + "ORDER BY Name");
+				  + "ORDER BY Id");
 			
 			rs = st.executeQuery();
 			

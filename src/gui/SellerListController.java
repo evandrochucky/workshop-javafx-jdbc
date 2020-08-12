@@ -101,6 +101,7 @@ public class SellerListController implements Initializable, DataChangeListener {
 		Utils.formatTableColumnDouble(tableColumnBaseSalary, 2);
 
 //		tableColumnDepartmentId.setCellValueFactory(new PropertyValueFactory<>("DepartmentId"));
+		tableColumnDepartmentId.setCellValueFactory(new PropertyValueFactory<>("department"));
 		
 		// para que o tamanho da minha tableview acompanhe o tamanho da janela.
 		Stage stage = (Stage) Main.getMainScene().getWindow();
